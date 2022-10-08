@@ -1,9 +1,11 @@
-import react from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import styled from 'styled-components';
 import Navbar from "./Navbar";
 import GlobalStyle from "../styles/GlobalStyle";
 import Filmes from "./Filmes";
+import Cadeiras from "./Cadeiras";
+import Horarios from "./Horarios";
+import Concluido from "./Concluido";
 
 
 //primeira pagina não tem rodapé, so os filmes em cartaz

@@ -8,10 +8,11 @@ export default function Footer ({horario, nome, dia}){
         <>
             <Wrapper>
                 <Capa>
-                    <img scr={} />
+                    <img scr={horarios.cartaz.Url} />
                 </Capa>
                 <Info>
-                    //nome e horario
+                    <span>{horario.titulo}</span>
+                    {nome?(<span>{dia}-{nome}</span>):('')}
                 </Info>
             </Wrapper>        
         </>

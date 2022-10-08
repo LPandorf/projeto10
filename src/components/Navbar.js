@@ -26,4 +26,4 @@ const Wrapper = styled.div`
     font-weight: 400;
     font-size: 34px;
     line-height: 40px;
-`
+`;

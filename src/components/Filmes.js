@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState, useEffect } from "react";
-import filme from "./Filme";
+import Filme from "./Filme";
 import { pegarFilmes } from "./Apis";
 
 //função para pegar a lista de filmes e mostrar na tela
@@ -16,7 +16,7 @@ export default function Filmes(){
             <Titulo>Selecione o Filme</Titulo>
             <Catalogo>
                 {filmes.map((m) => (
-                    <Filme key={m.id} movie={m}/>
+                    <Filme key={m.id} filme={m}/>
                 ))}
             </Catalogo>
         </>
