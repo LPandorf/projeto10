@@ -5,15 +5,15 @@ export default function Filme({ filme }) {
     return (
         <>
             <Link to={'/sessoes/${filme.id'}>
-                <Filme>
+                <Filminho>
                     <img src={filme.cartazUrl} />
-                </Filme>
+                </Filminho>
             </Link>
         </>
     );
 }
 
-const Filme = styled.div`
+const Filminho = styled.div`
     display: flex;
     padding: 8px;
     background: #FFFFFF;

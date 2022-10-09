@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { pegarHorarios } from "./Apis";
 import Footer from './Footer';
 import Data from './Data';
+import styled from "styled-components";
 
 export default function Horarios (){    
     const [horario,setHoraio]=useState({});

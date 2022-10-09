@@ -11,7 +11,7 @@ function Cadeira({ cadeira, cadeiraSelecionada }) {
             <span className={`cadeira ${cadeira.estavaga ? '' : 'ocupada'} ${
                 cadeira.selecionada ? 'selecionada' : ''
                 }`}
-                onClick={()=>cadeiraSelecionada(seat.id)}
+                onClick={()=>cadeiraSelecionada(cadeira.id)}
             >
                 {cadeira.nome}
             </span>
@@ -46,7 +46,7 @@ export default function Cadeiras() {
         });
     }
     function cadeiraSelecionada(cadeiraId) {
-        const novasCadeiras = seats.map((value) => {
+        const novasCadeiras = cadeiras.map((value) => {
             if (value.id === cadeiraId && value.estavaga) {
                 return { 
                     ...value, 
@@ -73,7 +73,7 @@ export default function Cadeiras() {
                 <Titulo>Selecione os assentos</Titulo>
                 <Lista>
                     {cadeiras.length !== 0
-                        ? cadeias.map((value) => (
+                        ? cadeiras.map((value) => (
                             <Cadeira key={value.id} cadeira={value} cadeiraSelecionada={cadeiraSelecionada} />
                         ))
                     : 'carregando...'}
