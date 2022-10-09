@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { pegarCadeiras, pegarReserva } from "./Apis";
+import { pegarCadeiras } from "./Apis";
 import Footer from "./Footer";
 import styled from 'styled-components';
 

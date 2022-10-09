@@ -6,7 +6,7 @@ export default function Filme({ filme }) {
         <>
             <Link to={'/sessoes/${filme.id'}>
                 <Filminho>
-                    <img src={filme.cartazUrl} />
+                    <img src={filme.cartazUrl} alt={filme.cartazUrl} />
                 </Filminho>
             </Link>
         </>

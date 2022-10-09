@@ -6,9 +6,14 @@ import Data from './Data';
 import styled from "styled-components";
 
 export default function Horarios (){    
-    const [horario,setHoraio]=useState({});
+    const [horario,setHorario]=useState({});
     const {filmeId}= useParams();
-    useEffect(()=>{pegarHorarios(filmeId).them((res)=>{console.log(res.data);setHoraio(res.data)});},[]);
+    useEffect(()=>{
+        pegarHorarios(filmeId).them((res)=>{
+            console.log(res.data);
+            setHorario(res.data);
+        });
+    },[]);
     return (
         <>
             <Titulo>Selecione o horário</Titulo>
@@ -19,6 +24,8 @@ export default function Horarios (){
         </>
     );
 }
+
+
 
 const Titulo = styled.div`
     color: #247A6B;

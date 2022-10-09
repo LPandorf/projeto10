@@ -5,19 +5,19 @@ import axios from "axios";
 const URLbase = 'https://mock-api.driven.com.br/api/v8/cineflex/';
 
 function pegarFilmes(){
-    const promise= axios.get('${URLbase}movies');
+    const promise= axios.get(`${URLbase}movies`);
     return promise;
 }
 function pegarHorarios(filmeId){
-    const promise= axios.get('${URLbase}movies/${ID_DO_FILME}/showtimes');
+    const promise= axios.get(`${URLbase}movies/${filmeId}/showtimes`);
     return promise;
 }
 function pegarCadeiras(sessaoId){
-    const promise= axios.get('${URLbase}showtimes/${ID_DA_SESSAO}/seats');
+    const promise= axios.get(`${URLbase}showtimes/${sessaoId}/seats`);
     return promise;
 }
 function pegarReserva(body){
-    const promise= axios.get('${URLbase}seats/book-many', body);
+    const promise= axios.get(`${URLbase}seats/book-many`, body);
     return promise;
 }
 
