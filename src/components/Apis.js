@@ -8,7 +8,6 @@ function pegarFilmes(){
     const promise= axios.get('${URLbase}movies');
     return promise;
 }
-
 function pegarHorarios(filmeId){
     const promise= axios.get('${URLbase}movies/${ID_DO_FILME}/showtimes');
     return promise;
@@ -21,7 +20,5 @@ function pegarReserva(body){
     const promise= axios.get('${URLbase}seats/book-many', body);
     return promise;
 }
-
-
 
 export {pegarFilmes, pegarHorarios, pegarCadeiras, pegarReserva};
