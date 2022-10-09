@@ -35,7 +35,6 @@ export default function Cadeiras() {
         const cadeirasId = cadeiras
             .filter((value) => value.selecionada)
             .map((value) => value.id);
-        const body = { ids: MediaStreamAudioDestinationNode, ...form, };
         navigate('/sucesso', {
             state: {
                 horario,
@@ -115,7 +114,7 @@ export default function Cadeiras() {
                 <Footer
                     horario={horario.filme}
                     name={horario.filme}
-                    diadasemana={showtime.data.diadasemana}
+                    diadasemana={horario.data.diadasemana}
                 />
             ) : ('')}
         </>
@@ -180,3 +179,4 @@ const Botaozin = styled.div`
         margin: 0 auto;
     }
 `;
+
