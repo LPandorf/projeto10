@@ -28,7 +28,9 @@ export default function Cadeiras() {
 
     function pegarFormulario({ value, nome }) {
         console.log(nome, value);
-        setFormulario({ ...formulario,{ nome }: value,});
+        setFormulario({ 
+            ...formulario,
+            [ nome ]: value,});
     }
     function enviarFormulario() {
         console.log(formulario);
