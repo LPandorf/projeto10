@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Data({dia,diadasemana,horarios}){
+    console.log(horarios);
+
     return (
         <Pao>
             <Dia>
@@ -9,7 +11,7 @@ export default function Data({dia,diadasemana,horarios}){
                     <span>{diadasemana}-{dia}</span>
                 </Titulo>
                 <Lista>
-                    {horarios.map((value) => (<Link to={`assentos/${value.id}`}><Horario>{value.nome}</Horario></Link>))}
+                    {horarios!==undefined? horarios.map((value) => (<Link to={`assentos/${value.id}`}><Horario>{value.name}</Horario></Link>)):false}
                 </Lista>
             </Dia>
         </Pao>
@@ -20,7 +22,7 @@ const Pao= styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 23px;
-    margin-bottom: 117px;
+    margin-bottom: 47px;
 `;
 
 const Dia=styled.div`

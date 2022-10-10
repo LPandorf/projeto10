@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 
 export default function Footer ({horario, nome, dia}){
-
+    console.log(horario.posterURL);
 
     return (
         <>
             <Wrapper>
                 <Capa>
-                    <img scr={horario.cartaz.Url} alt={horario.cartaz.Url} />
+                    <img scr={horario.posterURL} alt='' />
                 </Capa>
                 <Info>
-                    <span>{horario.titulo}</span>
+                    <span>{horario.title}</span>
                     {nome?(<span>{dia}-{nome}</span>):('')}
                 </Info>
             </Wrapper>        

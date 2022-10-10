@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export default function Filme({ filme }) {
     return (
         <>
-            <Link to={'/sessoes/${filme.id'}>
+            <Link to={`/sessoes/${filme.id}`}>
                 <Filminho>
-                    <img src={filme.cartazUrl} alt={filme.cartazUrl} />
+                    <img src={filme.posterURL} alt='' />
                 </Filminho>
             </Link>
         </>

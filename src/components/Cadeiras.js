@@ -25,7 +25,7 @@ export default function Cadeiras() {
     const [formulario, setFormulario] = useState({});
     const { horarioId } = useParams();
     const navigate = useNavigate();
-
+    console.log(horarioId);
     function pegarFormulario({ value, nome }) {
         console.log(nome, value);
         setFormulario({ 
@@ -70,7 +70,7 @@ export default function Cadeiras() {
     return (
         <>
             <Selecao>
-                <Titulo>Selecione os assentos</Titulo>
+                <Titulo>Selecione o(s) assento(s)</Titulo>
                 <Lista>
                     {cadeiras.length !== 0
                         ? cadeiras.map((value) => (
@@ -81,26 +81,26 @@ export default function Cadeiras() {
             </Selecao>
             <Formulario>
                 <Inputinho>
-                    <Titulinho>Nome</Titulinho>
+                    <Titulinho>Nome do comprador:</Titulinho>
                     <input 
                         placeholder="Nome"
                         name="nome"
                         onChange={(e)=>
                             pegarFormulario({ 
-                                name: e.target.nome,
+                                name: e.target.name,
                                 value: e.target.value,
                             })
                         }
                     ></input>
                 </Inputinho>
                 <Inputinho>
-                    <Titulinho>CPF</Titulinho>
+                    <Titulinho>CPF do comprador:</Titulinho>
                     <input
                         placeholder="CPF"
                         name="cpf"
                         onChange={(e)=>
                             pegarFormulario({
-                                name: e.target.nome,
+                                name: e.target.name,
                                 value: e.target.value,
                             })
                         }
@@ -116,7 +116,7 @@ export default function Cadeiras() {
                 <Footer
                     horario={horario.filme}
                     name={horario.filme}
-                    diadasemana={horario.data.diadasemana}
+                    diadasemana={horario.data.weekday}
                 />
             ) : ('')}
         </>

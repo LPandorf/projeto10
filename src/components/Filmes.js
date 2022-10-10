@@ -29,6 +29,7 @@ const Titulo = styled.div`
     align-items: center;
     height: 110px;
     font-size: 24px;
+    margin-top: 80px;
 `
 const Catalogo = styled.div`
     display: flex;

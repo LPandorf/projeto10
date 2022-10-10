@@ -6,10 +6,12 @@ import Data from './Data';
 import styled from "styled-components";
 
 export default function Horarios (){    
-    const [horario,setHorario]=useState({});
+    const [horario,setHorario]=useState([]);
     const {filmeId}= useParams();
+    console.log(filmeId);
+    console.log(horario);
     useEffect(()=>{
-        pegarHorarios(filmeId).them((res)=>{
+        pegarHorarios(filmeId).then((res)=>{
             console.log(res.data);
             setHorario(res.data);
         });
@@ -18,7 +20,7 @@ export default function Horarios (){
         <>
             <Titulo>Selecione o horário</Titulo>
             <Lista>
-                {horario.dias?horario.dias.map((value)=>(<Data key={value.id} dia={value.dia} diadasemana={value.diadasemana} horarios={value.horarios}/>)): 'Aguarde...'}
+                {horario.days?horario.days.map((value)=>(<Data key={value.id} dia={value.date} diadasemana={value.weekday} horarios={value.showtimes}/>)): 'Aguarde...'}
             </Lista>
             <Footer horario={horario}></Footer>
         </>
@@ -35,9 +37,12 @@ const Titulo = styled.div`
     font-size: 24px;
     line-height: 28px;
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
     letter-spacing: 0.04em;
+    margin-top: 100px;
+    margin-bottom: 40px;
 `
 
 const Lista = styled.div`
