@@ -8,7 +8,7 @@ function Cadeira({ cadeira, cadeiraSelecionada }) {
 
     return (
         <>
-            <span className={`cadeira ${cadeira.estavaga ? '' : 'ocupada'} ${
+            <span className={`cadeira ${cadeira.isAvailable ? '' : 'ocupada'} ${
                 cadeira.selecionada ? 'selecionada' : ''
                 }`}
                 onClick={()=>cadeiraSelecionada(cadeira.id)}
@@ -47,7 +47,7 @@ export default function Cadeiras() {
     }
     function cadeiraSelecionada(cadeiraId) {
         const novasCadeiras = cadeiras.map((value) => {
-            if (value.id === cadeiraId && value.estavaga) {
+            if (value.id === cadeiraId && value.isAvailable) {
                 return { 
                     ...value, 
                     selecionada: !value.selecionada, 
@@ -63,16 +63,16 @@ export default function Cadeiras() {
         pegarCadeiras(horarioId).then((res) => { 
             console.log(res.data); 
             setHorario(res.data); 
-            setCadeiras(res.data.cadeiras); 
+            setCadeiras(res.data.seats); 
         }); 
-    }, []);
+    }, [horarioId]);
 
     return (
         <>
             <Selecao>
                 <Titulo>Selecione o(s) assento(s)</Titulo>
                 <Lista>
-                    {cadeiras.length !== 0
+                    {cadeiras !== undefined
                         ? cadeiras.map((value) => (
                             <Cadeira key={value.id} cadeira={value} cadeiraSelecionada={cadeiraSelecionada} />
                         ))
@@ -107,10 +107,9 @@ export default function Cadeiras() {
                     ></input>
                 </Inputinho>                
             </Formulario>
-            <Botaozin>
-                <button onClick={enviarFormulario}>
+            <Botaozin onClick={enviarFormulario}>
                     Reservar
-                </button>
+                
             </Botaozin>
             {horario.filme?(
                 <Footer
@@ -132,13 +131,14 @@ const Titulo = styled.div`
     font-weight: bold;
     color: #247A6B;
     text-align: center;
+    margin-top: 100px;
 `;
 const Lista = styled.div`
     padding: 0 24px;
     display: flex;
     flex-wrap: wrap;
     width: 320px;
-    margin: -20px auto 0;
+    margin: 100px;
 `;
 const Formulario = styled.div`
     margin-top: 31px;
@@ -147,6 +147,7 @@ const Formulario = styled.div`
 const Inputinho = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
     & input{
         border-radius: 3px;
         padding: 18px;
@@ -165,8 +166,8 @@ const Titulinho = styled.div`
     font-size: 18px;
     color: #293845;
 `;
-const Botaozin = styled.div`
-    &button{
+const Botaozin = styled.button`
+ 
         margin-top: 57px;
         width: 225px;
         height: 42px;
@@ -179,6 +180,6 @@ const Botaozin = styled.div`
         border: none;
         border-radius: 3px;
         margin: 0 auto;
-    }
+
 `;
 

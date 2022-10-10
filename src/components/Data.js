@@ -11,7 +11,7 @@ export default function Data({dia,diadasemana,horarios}){
                     <span>{diadasemana}-{dia}</span>
                 </Titulo>
                 <Lista>
-                    {horarios!==undefined? horarios.map((value) => (<Link to={`assentos/${value.id}`}><Horario>{value.name}</Horario></Link>)):false}
+                    {horarios!==undefined? horarios.map((value) => (<Link to={`/assentos/${value.id}`}><Horario>{value.name}</Horario></Link>)):false}
                 </Lista>
             </Dia>
         </Pao>
